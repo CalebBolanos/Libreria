@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libreria.FXMLCrearCuentaController">
+   <children>
+      <Text fill="#e74645" layoutX="305.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear cuenta">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Text>
+      <Text layoutX="315.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Ya tienes una cuenta? " />
+      <Hyperlink fx:id="HyperlinkInicioSesion" layoutX="440.0" layoutY="504.0" onAction="#irAIniciarSesion" text="Inicia Sesión" textFill="#e74645" />
+      <Pane layoutX="213.0" layoutY="115.0" prefHeight="371.0" prefWidth="427.0" style="-fx-background-color: white; -fx-border-radius: 10 10 10 10; -fx-background-radius: 10 10 10 10;">
+         <children>
+            <JFXTextField fx:id="txtNombres" focusColor="#e74645" layoutX="79.0" layoutY="44.0" prefWidth="270.0" promptText="Nombres" />
+            <JFXTextField fx:id="txtPaterno" focusColor="#e74645" layoutX="78.0" layoutY="86.0" prefWidth="270.0" promptText="Apellido Paterno" />
+            <JFXTextField fx:id="txtMaterno" focusColor="#e74645" layoutX="78.0" layoutY="130.0" prefWidth="270.0" promptText="Apellido Materno" />
+            <JFXTextField fx:id="txtCorreo" focusColor="#e74645" layoutX="78.0" layoutY="172.0" prefWidth="270.0" promptText="Correo electrónico" />
+            <JFXPasswordField fx:id="pfContrasena" focusColor="#e74645" layoutX="79.0" layoutY="217.0" prefWidth="270.0" promptText="Contraseña" />
+            <JFXPasswordField fx:id="pfContrasena2" focusColor="#e74645" layoutX="79.0" layoutY="260.0" prefWidth="270.0" promptText="Vuelve a escribir tu contraseña" />
+            <JFXButton buttonType="RAISED" layoutX="164.0" layoutY="319.0" onAction="#registrarCliente" ripplerFill="#ff8282b5" style="-fx-background-color: #e74645;" text="Crear Cuenta" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

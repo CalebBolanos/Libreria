@@ -5,12 +5,21 @@
  */
 package libreria;
 
+import base.conexion;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
@@ -18,18 +27,54 @@ import javafx.scene.control.Label;
  */
 public class FXMLInicioSesionController implements Initializable {
     
+    conexion base;
     @FXML
-    private Label label;
+    JFXTextField txtUsuario;
+    @FXML
+    JFXPasswordField pfContrasena;
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        base = new conexion();
+    }
+    
+    
+    @FXML
+    private void iniciarSesion(ActionEvent event) throws IOException {
+        String usuario = txtUsuario.getText();
+        String contrasena = pfContrasena.getText();
+        
+        if(Validaciones.StringsNoVacios(usuario, contrasena)){
+            try {
+                    base.conectar();
+                    ResultSet rs = base.ejecutaQuery("call spIniciarSesion(\""+usuario+"\", \""+contrasena+"\");");
+                    if (rs.next()) {
+                        if (rs.getString("msj").equals("ok")) {
+                            int idCliente = rs.getInt("idCli");
+                            DialogosFX.mostrarInfo("Inicar Sesion", "Sesion iniciada: "+ idCliente);
+                        } else {
+                            DialogosFX.mostrarWarning("Inicar Sesion", rs.getString("msj"));
+                        }
+                    }
+                    base.cierraConexion();
+                } catch (SQLException ex) {
+                    DialogosFX.mostrarError("Inicar Sesion", "Hubo un error al intentar iniciar sesion");
+                    ex.printStackTrace();
+                }
+        }
+        else{
+            DialogosFX.mostrarWarning("Iniciar Sesión", "Llena todos los campos vacios");
+        }
+        
+    }  
+    
+    @FXML
+    private void irACrearCuenta(ActionEvent event) throws IOException {
+        Stage stageActual = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loaderCrearCuenta = new FXMLLoader(getClass().getResource("FXMLCrearCuenta.fxml"));
+        Scene sceneCrearCuenta = new Scene(loaderCrearCuenta.load());
+        stageActual.setScene(sceneCrearCuenta);
+    }  
     
 }

@@ -27,10 +27,10 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <JFXButton fx:id="button" buttonType="RAISED" layoutX="531.0" layoutY="389.0" onAction="#handleButtonAction" ripplerFill="#ff6d6db5" style="-fx-background-color: #e74645;" text="Iniciar Sesión" textFill="WHITE" />
-      <JFXTextField focusColor="#e74645" labelFloat="true" layoutX="410.0" layoutY="267.0" prefHeight="27.0" prefWidth="352.0" promptText="Usuario" />
-      <JFXPasswordField focusColor="#e74645" labelFloat="true" layoutX="410.0" layoutY="328.0" prefHeight="27.0" prefWidth="352.0" promptText="Contraseña" />
+      <JFXButton buttonType="RAISED" layoutX="531.0" layoutY="389.0" onAction="#iniciarSesion" ripplerFill="#ff8181b5" style="-fx-background-color: #e74645;" text="Iniciar Sesión" textFill="WHITE" />
+      <JFXTextField fx:id="txtUsuario" focusColor="#e74645" labelFloat="true" layoutX="410.0" layoutY="267.0" prefHeight="27.0" prefWidth="352.0" promptText="Usuario" />
+      <JFXPasswordField fx:id="pfContrasena" focusColor="#e74645" labelFloat="true" layoutX="410.0" layoutY="328.0" prefHeight="27.0" prefWidth="352.0" promptText="Contraseña" />
       <Text layoutX="467.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si no tienes una cuenta registrate" />
-      <Hyperlink layoutX="645.0" layoutY="445.0" text="aquí" textFill="#e74645" />
+      <Hyperlink fx:id="HyperlinkAqui" layoutX="645.0" layoutY="445.0" onAction="#irACrearCuenta" text="aquí" textFill="#e74645" />
     </children>
 </AnchorPane>
