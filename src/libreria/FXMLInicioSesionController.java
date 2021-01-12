@@ -5,6 +5,7 @@
  */
 package libreria;
 
+import Sesion.Cliente;
 import base.conexion;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -52,7 +53,16 @@ public class FXMLInicioSesionController implements Initializable {
                     if (rs.next()) {
                         if (rs.getString("msj").equals("ok")) {
                             int idCliente = rs.getInt("idCli");
-                            DialogosFX.mostrarInfo("Inicar Sesion", "Sesion iniciada: "+ idCliente);
+                            String nombres = rs.getString("nom");
+                            String paterno = rs.getString("pat");
+                            String materno = rs.getString("mat");
+                            String correo = rs.getString("corr");
+                            Cliente.almacenarDatos(idCliente, nombres, paterno, materno, correo);
+
+                            Stage stageActual = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            FXMLLoader loaderInicio = new FXMLLoader(getClass().getResource("FXMLInicio.fxml"));
+                            Scene sceneInicio = new Scene(loaderInicio.load());
+                            stageActual.setScene(sceneInicio);
                         } else {
                             DialogosFX.mostrarWarning("Inicar Sesion", rs.getString("msj"));
                         }
