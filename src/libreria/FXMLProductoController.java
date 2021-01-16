@@ -38,7 +38,7 @@ public class FXMLProductoController implements Initializable {
     private ImageView imgvPortada;
 
     @FXML
-    private Label labelNombre, labelTipo, labelAutor, labelPrecio;
+    private Label labelNombre, labelTipo, labelAutor, labelEditorial, labelAnio, labelPrecio;
     
     private Producto producto;
     private ProductoListener productoListener; 
@@ -61,9 +61,24 @@ public class FXMLProductoController implements Initializable {
         Image portada = new Image(producto.getLinkPortada());
         imgvPortada.setImage(portada);
         labelNombre.setText(producto.getNombre());
-        labelTipo.setText("libro");
+        labelTipo.setText(stringTipoProducto(producto.getTipoProducto()));
         labelAutor.setText(producto.getAutor());
+        labelEditorial.setText(producto.getEditorial());
+        labelAnio.setText(String.valueOf(producto.getAnio()));
         labelPrecio.setText("$"+producto.getPrecio().toString());
+    }
+    
+    public static String stringTipoProducto(int tipoProducto){
+        switch (tipoProducto){
+            case Producto.LIBRO:
+                return "Libro";
+            case Producto.EBOOK:
+                return "eBook";
+            case Producto.AUDIOLIBRO:
+                return "Audiolibro";
+            default:
+                return null;
+        }
     }
     
 }

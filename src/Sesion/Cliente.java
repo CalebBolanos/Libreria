@@ -61,6 +61,12 @@ public class Cliente {
         Cliente.correo = correo;
     }
 
-    
+    public static void limpiarDatos(){
+        Cliente.idCliente = 0;
+        Cliente.nombre = "";
+        Cliente.paterno = "";
+        Cliente.materno = "";
+        Cliente.correo = "";
+    }
     
 }

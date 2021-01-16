@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libreria.FXMLVisualizarProductoController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="541.0" prefWidth="248.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="imvPortada" fitHeight="224.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Downloads/portada.jpg" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="40.0" left="10.0" right="10.0" top="50.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label text="Información Adicional">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelInfoAdicional" text="Label" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <VBox prefHeight="541.0" prefWidth="354.0" style="-fx-background-color: #e4e4e4;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="labelNombre" prefHeight="78.0" prefWidth="296.0" text="Titulo" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="20.0" top="90.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelAutor" text="Autor nombre del autor">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelEditorial" text="Editorial">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </center>
+         <right>
+            <VBox alignment="TOP_CENTER" prefHeight="530.0" prefWidth="233.0" style="-fx-background-color: #e4e4e4;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="labelPrecio" text="Precio: $100">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="labelCantidadText" text="Cantidad:">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="txtCantidad" focusColor="#e74645" prefHeight="27.0" prefWidth="99.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="169.0">
+                     <children>
+                        <Label fx:id="labelTotalText" text="Total:" textFill="#e74645">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelTotal" text="\$100" textFill="#e74645">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <JFXButton fx:id="buttonComprar" buttonType="RAISED" maxWidth="1.7976931348623157E308" onAction="#comprarProducto" style="-fx-background-color: #e74645;" text="Comprar" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </right>
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="850.0" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 5.0 , 0.0 , 0.0 ,5.0); -fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="buttonInicio" onAction="#irAInicio" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #e74645;" text=" &lt; Inicio" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <Label fx:id="labelProducto" alignment="CENTER" prefHeight="26.0" prefWidth="638.0" text="Producto">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="linkUsuario" onAction="#irACliente" text="Usuario" textFill="#e74645">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </Hyperlink>
+               </children>
+            </HBox>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -12,17 +12,23 @@ import java.math.BigDecimal;
  * @author calebbolanos
  */
 public class Producto {
+    public final static int TODO = 0;
+    public final static int LIBRO = 1;
+    public final static int EBOOK = 2;
+    public final static int AUDIOLIBRO = 3;
+    
     private String sku, nombre, autor, linkPortada, editorial;
-    private int tipoProducto;
+    private int tipoProducto, anio;
     private BigDecimal precio;
 
-    public Producto(String sku, String nombre, String autor, String linkPortada, String editorial, int tipoProducto, BigDecimal precio) {
+    public Producto(String sku, String nombre, String autor, String linkPortada, String editorial, int tipoProducto, BigDecimal precio, int anio) {
         this.sku = sku;
         this.nombre = nombre;
         this.autor = autor;
         this.linkPortada = linkPortada;
         this.editorial = editorial;
         this.tipoProducto = tipoProducto;
+        this.anio = anio;
         this.precio = precio;
     }
 
@@ -82,5 +88,11 @@ public class Producto {
         this.precio = precio;
     }
     
-    
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
 }
