@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libreria.FXMLClienteController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libreria.FXMLClienteController">
    <children>
       <BorderPane layoutX="210.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -26,9 +26,9 @@
                            <children>
                               <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <HBox style="-fx-background-color: #e4e4e4;">
+                                    <HBox alignment="CENTER" style="-fx-background-color: #e4e4e4;">
                                        <children>
-                                          <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="619.0">
+                                          <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="723.0">
                                              <children>
                                                 <Label fx:id="labelNombre" text="Nombre completo del cliente">
                                                    <font>
@@ -36,29 +36,15 @@
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="labelCorreo" text="correo@correo.com" />
+                                                <JFXButton onAction="#abrirCambioContrasena" style="-fx-background-color: #e74645;" text="Cambiar contraseña" textFill="WHITE" />
                                              </children>
                                              <padding>
                                                 <Insets left="10.0" />
                                              </padding>
                                           </VBox>
+                                          <JFXButton onAction="#borrarCuenta" style="-fx-background-color: #e74645;" text="Borrar cuenta" textFill="WHITE" />
                                        </children>
                                     </HBox>
-                                    <VBox>
-                                       <children>
-                                          <Label text="Libros consultados">
-                                             <VBox.margin>
-                                                <Insets bottom="20.0" top="20.0" />
-                                             </VBox.margin>
-                                             <font>
-                                                <Font size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <TableView fx:id="tableLibros" prefHeight="200.0" />
-                                       </children>
-                                       <padding>
-                                          <Insets left="20.0" right="20.0" />
-                                       </padding>
-                                    </VBox>
                                     <VBox layoutX="10.0" layoutY="110.0">
                                        <children>
                                           <Label text="Ebooks comprados">
